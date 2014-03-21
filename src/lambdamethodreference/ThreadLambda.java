@@ -39,10 +39,10 @@ public class ThreadLambda {
 	 * 方法引用
 	 */
 	public static void threadStart3(){
-		new Thread(ThreadLambda::reference).start();
+		new Thread(ThreadLambda::run).start();
 	}
 	
-	public static void reference(){
+	public static void run(){
 		System.out.println("hello world, i'm threadStart3!");
 	}
 }
