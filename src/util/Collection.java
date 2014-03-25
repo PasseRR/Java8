@@ -5,10 +5,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
- * 集合Lambda和方法引用
+ * Java8 Collection接口新增的default方法(包括父接口Iterable)
  * @version 1.0
  * @author xiehai
  * @date 2014年3月20日 下午1:37:50 
@@ -21,7 +20,7 @@ public class Collection {
 	
 	/**
 	 * 集合forEach
-	 * @see Iterable
+	 * @see java.lang.Iterable
 	 */
 	public static void forEach(){
 		String []arrays = {"hello", "world"};
@@ -65,20 +64,5 @@ public class Collection {
 		List<Integer> anotherList = new LinkedList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
 		anotherList.removeIf((item) -> item < 3);//删除小于3的元素
 		anotherList.forEach((item) -> System.out.println(item));
-	}
-	
-	/**
-	 * 集合过滤
-	 */
-	public static void filter(){
-		Integer []num = {3, 4, 5, 6, 7, 8, 9};
-		List<Integer> list = Arrays.asList(num)
-				.stream()
-				.filter(item -> {//过滤大于5的数字
-					return item > 5;	
-				}).collect(Collectors.toList());//将结果赋给list
-		list.stream().parallel();//并行流
-		list.stream();//顺序流
-		list.forEach(item -> System.out.println(item));
 	}
 }
