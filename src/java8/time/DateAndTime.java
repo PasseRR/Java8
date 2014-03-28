@@ -6,6 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -19,9 +22,9 @@ import java.time.temporal.IsoFields;
 public class DateAndTime {
 	public static void main(String[] args) {
 //		dateAndTime();
-//		calculate();
+		calculate();
 //		timeAndDateSegment();
-		timeZone();
+//		timeZone();
 	}
 	
 	/**
@@ -148,6 +151,14 @@ public class DateAndTime {
 		System.out.println(ldt2);
 		LocalDateTime ldt3 = lt.atDate(ld2);//时间加上日期
 		System.out.println(ldt3);
+		
+		System.out.println("----------------compare----------------");
+		//计算两个日期的间隔
+		ldt = LocalDateTime.parse("2013-01-01 12:22:22", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		ldt2 = LocalDateTime.parse("2013-01-04 13:13:15", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		long minus = ldt.toEpochSecond(ZoneOffset.of("+0")) - ldt2.toEpochSecond(ZoneOffset.of("+0"));
+		//可以将Duration转为天 小时
+		System.out.println(Duration.of(minus, ChronoUnit.SECONDS));
 	}
 	
 	/**
@@ -185,6 +196,30 @@ public class DateAndTime {
 	 * 时区相关
 	 */
 	public static void timeZone(){
+		//一个ZoneId为shanghai的时区日期时间
+		ZonedDateTime zdt = ZonedDateTime.now();
+		System.out.println(zdt);
 		
+		//创建ZoneId
+		//州 国家/城市 Australia America Africa Asia Europe Pacific
+		ZoneId id = ZoneId.of("Asia/Shanghai");
+		id = ZoneId.of("America/Chicago");
+		System.out.println(id);
+		
+		//获得某个城市的当前时间
+		id = ZoneId.of("America/Chicago");
+		zdt = ZonedDateTime.now(id);
+		System.out.println(zdt);
+		
+		//ZoneDateTime有LocalDateTime一样的所有操作
+		//此处不一一列举
+		//如果你希望代表一个日期和时间不依赖特定服务器环境, 
+		//你就应该使用ZonedDateTime
+		
+		//时间偏移量
+		ZoneOffset zo = ZoneOffset.of("+1");
+		System.out.println(zo.getId());
+		zdt = ZonedDateTime.now(zo);
+		System.out.println(zdt);
 	}
 }
