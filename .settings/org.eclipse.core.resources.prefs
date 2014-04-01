@@ -1,7 +1,14 @@
 eclipse.preferences.version=1
+encoding//src/interface8/defalult8/AnotherInterface.java=GBK
+encoding//src/interface8/defalult8/DefaultInterface.java=GBK
+encoding//src/interface8/defalult8/MyInterface.java=GBK
 encoding//src/interface8/defalult8/README.TXT=GBK
+encoding//src/interface8/functioninterface8/FunctionInterface.java=GBK
 encoding//src/interface8/functioninterface8/README.TXT=GBK
+encoding//src/lambdamethodreference/ComparatorLambda.java=GBK
 encoding//src/lambdamethodreference/README.TXT=GBK
+encoding//src/lambdamethodreference/ThreadLambda.java=GBK
+encoding//src/util/Collection.java=GBK
 encoding//src/util/README.TXT=GBK
 encoding//src/util/Stream.java=GBK
 encoding//src/util/function/README.TXT=GBK

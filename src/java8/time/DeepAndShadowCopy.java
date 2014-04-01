@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * 深拷贝和浅拷贝
@@ -32,7 +33,8 @@ public class DeepAndShadowCopy {
 		return ois.readObject();
 	}
 	
-	public static void main(String[] args) {
+	@SuppressWarnings("serial")
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		Father father = new Father();
 		father.setName("李四");
 		Person person = new Person();
@@ -61,7 +63,9 @@ public class DeepAndShadowCopy {
 		System.out.println("person4" + person4);
 	}
 }
-class Person implements Cloneable{
+
+@SuppressWarnings("serial")
+class Person implements Cloneable, Serializable{
 	String name;
 	Father father;
 	/**
@@ -124,7 +128,8 @@ class Person implements Cloneable{
 	}
 }
 
-class Father implements Cloneable{
+@SuppressWarnings("serial")
+class Father implements Cloneable, Serializable{
 	String name;
 
 	/**
