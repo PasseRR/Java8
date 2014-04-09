@@ -1,6 +1,3 @@
-/**
- * 
- */
 package base;
 
 import java.io.ByteArrayInputStream;
