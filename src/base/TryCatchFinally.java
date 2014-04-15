@@ -30,10 +30,21 @@ public class TryCatchFinally {
 			i ++;
 			i = 100;
 		}
-		return i;
+		
+		return 1;
 	}
 	
-	public static void getNumber3(){
+	@SuppressWarnings("finally")
+	public static boolean get(){
+		try {
+			return false;
+		} catch (Exception e) {
+		} finally{
+			return true;
+		}
+	}
+	
+	public static void getNumber4(){
 		try {
 			System.exit(0);
 		} catch (Exception e) {
@@ -51,9 +62,12 @@ public class TryCatchFinally {
 		
 		//通过1可知 finally会在return前执行,
 		//但是return的结果不会在finally块中改变
+		//但是如果在finally中return 那么结果会返回finally块中的结果
 		System.out.println("get the number2:" + getNumber2());
+		System.out.println(get());
 		
 		//如果在try块中退出JVM,那么finally块中的语句不会执行
-		getNumber3();
+		getNumber4();
+		
 	}
 }
