@@ -7,3 +7,5 @@ Java一些基础知识
 5)NewInstance				创建实例的方法
 6)LineOfFileOrProject		文件或项目的行数统计
 7)CollectionAndArraysSort	集合和数组排序
+8)Transient					测试Serializable接口和Externalizable接口与transient结合使用
+9)Jni						Java Native Interface使用
