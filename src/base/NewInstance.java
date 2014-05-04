@@ -50,6 +50,7 @@ public class NewInstance {
 		//带参数的构造方法
 		//int.class和Integer.class不一样
 		Constructor<?> constructor2 = clazz.getDeclaredConstructor(new Class[]{String.class, int.class});
+//		constructor2.setAccessible(true);//设置构造方法的可见性
 		Instance instance7 = (Instance) constructor2.newInstance(new Object[]{"123", 123});
 		instance7.getArguments();
 		//Class.newInstance() 只能够调用无参的构造函数，即默认的构造函数； 
