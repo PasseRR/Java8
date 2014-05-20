@@ -21,7 +21,7 @@ public class ExecutorDemo {
 		//线程池中线程的数量 3
 		ExecutorService es = Executors.newFixedThreadPool(3);
 		Runnable runnable = new RunnableDemo();
-		for(int i = 0; i < 15; ++i){
+		for(int i = 0; i < 10; ++i){
 			es.execute(runnable);
 		}
 		es.shutdown();
