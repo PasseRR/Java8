@@ -1,4 +1,4 @@
-package base.java.Thread;
+package base.java.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -63,7 +63,7 @@ class NormalCounter implements CalcCounter{
 	}
 
 	public int increment(int n) {
-		return count+n;
+		return count = count+n;
 	}
 
 	public int decrement() {
@@ -71,7 +71,7 @@ class NormalCounter implements CalcCounter{
 	}
 
 	public int decrement(int n) {
-		return count-n;
+		return count = count-n;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package base.java.Thread;
+package base.java.thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,11 +11,13 @@ import java.util.concurrent.Executors;
 public class VolatileDemo {
 	private class Runnable1 implements Runnable {
 		private boolean shutDown = false;
-		int i = 0;
 		public void run() {
+			long start = System.currentTimeMillis();
 			while(!shutDown){
-				System.out.println(Thread.currentThread().getName() + i ++);
+				Thread.yield();
 			}
+			long end = System.currentTimeMillis();
+			System.out.println(end - start);
 		}
 		
 		public void shutdown(){
@@ -25,11 +27,13 @@ public class VolatileDemo {
 	
 	private class Runnable2 implements Runnable{
 		private volatile boolean shutDown = false;
-		int i = 0;
 		public void run() {
+			long start = System.currentTimeMillis();
 			while(!shutDown){
-				System.out.println(Thread.currentThread().getName() + i ++);
+				Thread.yield();
 			}
+			long end = System.currentTimeMillis();
+			System.out.println(end - start);
 		}
 		
 		public void shutdown(){
@@ -42,13 +46,15 @@ public class VolatileDemo {
 		VolatileDemo volatileDemo = new VolatileDemo();
 		Runnable1 runnable1 = volatileDemo.new Runnable1();
 		eService.execute(runnable1);
-		Thread.sleep(10);
 		runnable1.shutdown();
 		eService.shutdown();
 		Runnable2 runnable2 = volatileDemo.new Runnable2();
 		eService2.execute(runnable2);
-		Thread.sleep(10);
 		runnable2.shutdown();
 		eService2.shutdown();
+//		VolatileDemo volatileDemo = new VolatileDemo();
+//		Runnable2 runnable1 = volatileDemo.new Runnable2();
+//		new Thread(runnable1).start();
+//		runnable1.shutdown();
 	}
 }

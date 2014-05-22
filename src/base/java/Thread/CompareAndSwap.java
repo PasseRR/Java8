@@ -1,4 +1,4 @@
-package base.java.Thread;
+package base.java.thread;
 
 /**
  * CAS 操作包含三个操作数 —— 内存位置（V）、预期原值（A）和新值(B)。<BR>

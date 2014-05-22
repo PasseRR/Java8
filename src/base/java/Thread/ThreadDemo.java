@@ -1,4 +1,4 @@
-package base.java.Thread;
+package base.java.thread;
 
 /**
  * 继承Thread类实现线程

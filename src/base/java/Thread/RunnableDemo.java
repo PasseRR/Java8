@@ -1,4 +1,4 @@
-package base.java.Thread;
+package base.java.thread;
 
 /**
  * 实现Runnable接口实现线程
