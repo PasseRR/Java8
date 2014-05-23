@@ -7,3 +7,4 @@ iv)VolatileDemo				volatile演示
 v)CompareAndSwap			CAS的原语
 vi)AtomicCounter			原子变量计数器
 vii)BlockingQueueDemo		阻塞队列
+viii)ConcurrentCollections	并发集合
