@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class ConcurrentCollections {
 	public static void main(String[] args) {
 //		new MapDemo().testMapGetAndPut();
-		new CopyOnWriteDemo().testCopyOnWrite();
+//		new CopyOnWriteDemo().testCopyOnWrite();
 	}
 }
 
