@@ -12,8 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AtomicDemo {
 	public static void main(String[] args) {
-//		new BaseClassDemo().testAtomicBoolean();
-		new BaseClassDemo().testAtomicInteger();
+		new BaseClassDemo().test();
 	}
 }
 /**
@@ -31,7 +30,7 @@ class BaseClassDemo{
      * AtomicBoolean#getAndSet(boolean)   
      * 尝试设置新的boolean值，直到成功为止，返回设置前的数据 
 	 */
-	public void testAtomicBoolean(){
+	private void testAtomicBoolean(){
 		ExecutorService es = Executors.newFixedThreadPool(3);
 		for(int i = 0; i < 30; ++i){
 			es.execute(new Runnable() {
@@ -42,7 +41,7 @@ class BaseClassDemo{
 					}else if(FLG.compareAndSet(true, false)){
 						
 					}
-					System.out.println(Thread.currentThread().getName() + "AtomicBoolean -> " + FLG.get());
+					System.out.println(Thread.currentThread().getName() + " -> " + FLG.get());
 				}
 			});
 		}
@@ -63,9 +62,9 @@ class BaseClassDemo{
      * AtomicInteger#lazySet(int)      仅仅当get时才会set <BR>
      * AtomicInteger#compareAndSet(int, int) 尝试新增后对比，若增加成功则返回true否则返回false 
 	 */
-	public void testAtomicInteger(){
-		ExecutorService es = Executors.newFixedThreadPool(30);
-		for(int i = 0; i < 300; ++i){
+	private void testAtomicInteger(){
+		ExecutorService es = Executors.newFixedThreadPool(3);
+		for(int i = 0; i < 30; ++i){
 			es.execute(new Runnable() {
 				@Override
 				public void run() {
@@ -75,6 +74,11 @@ class BaseClassDemo{
 			});
 		}
 		es.shutdown();
+	}
+	
+	public void test(){
+		this.testAtomicBoolean();
+		this.testAtomicInteger();
 	}
 }
 
